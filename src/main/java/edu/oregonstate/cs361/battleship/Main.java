@@ -21,6 +21,7 @@ public class Main {
 
     //This function should return a new model
     private static String newModel() {
+	Gson gson = new Gson();
         var model = { 
 		"aircraftCarrier": {
         		"name": "AircraftCarrier",
@@ -87,8 +88,8 @@ public class Main {
 		"computerHits": [],
 		"computerMisses": []
 	}
-	var myJSON = JSON.stringify(model);
-	return myJSON;
+	String jsonInString = gson.toJson(model);
+	return jsonInString;
     }
 
     //This function should accept an HTTP request and deseralize it into an actual Java object.
