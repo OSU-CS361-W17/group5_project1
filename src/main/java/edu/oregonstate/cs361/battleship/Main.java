@@ -7,7 +7,7 @@ import static spark.Spark.post;
 import static spark.Spark.staticFiles;
 import static sun.org.mozilla.javascript.internal.regexp.NativeRegExp.TEST;
 
-public class BattleshipModel {
+class BattleshipModel {
 {
 	"aircraftCarrier":
 	{
