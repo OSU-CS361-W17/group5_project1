@@ -9,7 +9,7 @@ import static sun.org.mozilla.javascript.internal.regexp.NativeRegExp.TEST;
 
 public class Main {
 
-public class BattleshipModel {
+private class BattleshipModel {
 	{
 		"aircraftCarrier":
 		{
