@@ -5,13 +5,8 @@ import spark.Request;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
-import static sun.org.mozilla.javascript.internal.regexp.NativeRegExp.TEST;
 
 public class Main {
-
-
-
-
 
 public static void main(String[] args) {
 	//This will allow us to server the static pages such as index.html, app.js, etc.
