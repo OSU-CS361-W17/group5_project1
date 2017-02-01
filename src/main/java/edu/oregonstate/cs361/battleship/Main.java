@@ -5,6 +5,7 @@ import spark.Request;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
+import static sun.org.mozilla.javascript.internal.regexp.NativeRegExp.TEST;
 
 public class Main {
 
@@ -39,11 +40,39 @@ private static BattleshipModel getModelFromReq(Request req){
 
 //This controller should take a json object from the front end, and place the ship as requested, and then return the object.
 private static String placeShip(Request req) {
-	req.
+	String place = req.url();
 	BattleshipModel data = getModelFromReq(req);
+	if(isInBounds(place)){
+		if(isNotOverlap(place,data)){
+				//write to object
+				//serialize
+				//return
+		}
+	}
+	//alert of failure
+	return data;
+}
 
+private static int isInBounds(String req) {
 
-	return null;
+	if(not in bounds)
+	{
+		return 0; //False
+	}
+	if(in bounds)
+	{
+		return 1; //True
+	}
+}
+
+private static int isNotOverlap(String req, BattleshipModel data){
+
+	if(overlap) {
+		return 0; //False
+	}
+	if(!overlap){
+		return 1; //True
+	}
 }
 
 //Similar to placeShip, but with firing.
