@@ -28,7 +28,7 @@ public static void main(String[] args) {
 //This function should return a new model
 private static String newModel() {
 	Gson gson = new Gson();
-	BattleshipModel temp = new BatlleshipModel();
+	BattleshipModel temp = new BattleshipModel();
 	assert temp != null;
 	String jsonString = gson.toJson(temp);
 	return jsonString;
