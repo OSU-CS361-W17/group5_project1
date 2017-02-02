@@ -28,8 +28,8 @@ public static void main(String[] args) {
 //This function should return a new model
 private static String newModel() {
 	Gson gson = new Gson();
-	BattleshipModel temp;
-	assert temp;
+	BattleshipModel temp = new BatlleshipModel();
+	assert temp != null;
 	String jsonString = gson.toJson(temp);
 	return jsonString;
 }
@@ -38,7 +38,7 @@ private static String newModel() {
 private static BattleshipModel getModelFromReq(Request req){
 	Gson gson = new Gson();
 	BattleshipModel temp = gson.fromJson(req.body());
-	assert temp;
+	assert temp != null;
 	return temp;
 }
 
