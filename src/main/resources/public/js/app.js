@@ -7,9 +7,11 @@ $( document ).ready(function() {
     displayGameState(currModel);
     gameModel = json;
    });
+   
 });
-
 function placeShip() {
+   //var shipList=document.getElementById('shipSelec');
+   //shipList.options[shipList.selectedIndex].remove();
    // This ajax call will asnychonously call the back end, and tell it where to place the ship, then get back a game model with the ship placed, and display the new model.
    var request = $.ajax({
      url: "/placeShip/"+$( "#shipSelec" ).val()+"/"+$( "#rowSelec" ).val()+"/"+$( "#colSelec" ).val()+"/"+$( "#orientationSelec" ).val(),
@@ -51,7 +53,6 @@ function fire(){
    request.fail(function( jqXHR, textStatus ) {
      alert( "Request failed: " + textStatus );
    });
-
 }
 
 //This function will display the game model.  It displays the ships on the users board, and then shows where there have been hits and misses on both boards.
