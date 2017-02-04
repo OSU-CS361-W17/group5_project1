@@ -54,7 +54,8 @@ private static String placeShip(Request req) {
 	BattleshipModel data = getModelFromReq(req);
 	if(isInBounds(place)){
 		if(isNotOverlap(place,data)){
-				//write to object
+			data.placeShip();
+			data.options[("#shipSelec").selectedIndex].remove(); //write to object
 			data = gson.toJson(data);//serialize
 			return data;	//return
 		}
