@@ -5,6 +5,7 @@ import spark.Request;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
+import java.io.OutputStream;
 
 public class Main {
 
@@ -31,9 +32,11 @@ private static String newModel() {
 
 //This function should accept an HTTP request and deseralize it into an actual Java object.
 private static BattleshipModel getModelFromReq(Request req){
+	//building new model
 	Gson gson = new Gson();
-	BattleshipModel temp = gson.fromJson(req.body());
-	assert temp;
+
+	BattleshipModel temp = gson.fromJson(req.body(), BattleshipModel.class);
+
 	return temp;
 }
 
@@ -48,7 +51,16 @@ private static String placeShip(Request req) {
 
 //Similar to placeShip, but with firing.
 private static String fireAt(Request req) {
+
+
+	String row = req.params(":col");
+	String col = req.params(":row");
+
+	System.out.println("row:" + row);
+	System.out.println("col:" + col);
+
+	//String result = java.net.URLDecoder.decode(url, "ASCII");
+
 	return null;
 }
-
 }
