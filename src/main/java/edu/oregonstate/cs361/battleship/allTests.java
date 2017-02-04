@@ -28,4 +28,15 @@ class allTests {
         assertEquals("3", col);
         assertEquals("1", row);
     }
+
+package edu.oregonstate.cs361.battleship;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class placeshipTest{
+
+}
+
+class isInBoundsTest{
+
 }
