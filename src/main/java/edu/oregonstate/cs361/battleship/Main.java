@@ -49,8 +49,8 @@ private static String placeShip(Request req) {
 	if(isInBounds(place)){
 		if(isNotOverlap(place,data)){
 				//write to object
-				//serialize
-				//return
+			data = gson.toJson(data);//serialize
+			return data;	//return
 		}
 	}
 	//alert of failure
