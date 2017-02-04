@@ -5,6 +5,7 @@ import spark.Request;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
+import java.io.OutputStream;
 import static sun.org.mozilla.javascript.internal.regexp.NativeRegExp.TEST;
 
 public class Main {
@@ -35,9 +36,14 @@ private static String newModel() {
 
 //This function should accept an HTTP request and deseralize it into an actual Java object.
 private static BattleshipModel getModelFromReq(Request req){
+	//building new model
 	Gson gson = new Gson();
-	BattleshipModel temp = gson.fromJson(req.body());
-	assert temp != null;
+
+	BattleshipModel temp = gson.fromJson(req.body(), BattleshipModel.class);
+
+//Ignore these comments below
+	//BattleshipModel temp = gson.fromJson(req.body());
+	//assert temp != null;
 	return temp;
 }
 
@@ -48,8 +54,8 @@ private static String placeShip(Request req) {
 	if(isInBounds(place)){
 		if(isNotOverlap(place,data)){
 				//write to object
-				//serialize
-				//return
+			data = gson.toJson(data);//serialize
+			return data;	//return
 		}
 	}
 	//alert of failure
@@ -1369,7 +1375,16 @@ private static boolean isNotOverlap(String req, BattleshipModel data){
 
 //Similar to placeShip, but with firing.
 private static String fireAt(Request req) {
+
+
+	String row = req.params(":col");
+	String col = req.params(":row");
+
+	System.out.println("row:" + row);
+	System.out.println("col:" + col);
+
+	//String result = java.net.URLDecoder.decode(url, "ASCII");
+
 	return null;
 }
-
 }
